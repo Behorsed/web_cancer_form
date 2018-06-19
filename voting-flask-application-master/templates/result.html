@@ -1,0 +1,52 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Wyniki ankiety:</h1>
+        <H2>Znajdujesz się w grupie {{ variable }} ryzyka.</H2>
+        <div id="scatter_div"></div>
+
+        <div id="pie_div" style="height: 500px;"></div>
+    </div>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1', {'packages': ['corechart']});
+        google.setOnLoadCallback(drawPieChart);
+        google.setOnLoadCallback(drawBarChart);
+        function drawBarChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Numer ankiety');
+            data.addColumn('number', 'Obliczony risk factor');
+            data.addRows({{ data[0]|tojson }});
+
+            var options = {
+                title: 'Twój wynik na tle innych ankietowanych',
+                legend: 'none',
+                vAxis: {title: 'Numer ankiety', minValue: 0, baseline: 0},
+                hAxis: {title: 'Risk factor', minValue: 0}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('scatter_div'));
+            chart.draw(data, options);
+        }
+
+        function drawPieChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Ryzyko');
+            data.addColumn('number', 'Procent badanych');
+            data.addRows({{ data[1]|tojson }});
+
+            var options = {
+                title: 'Procentowe grupy ryzyka u wszystkich ankietowanych',
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
+            chart.draw(data, options);
+        }
+
+    </script>
+
+{% endblock %}

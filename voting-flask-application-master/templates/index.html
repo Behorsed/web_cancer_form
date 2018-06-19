@@ -1,0 +1,104 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ankieta dot. raka szyjki macicy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type='text/javascript' src="../static/js/scripts.js"></script>
+</head>
+<body>
+
+  <div class="container">
+      <button type="button" class="w3-btn w3-round-xxlarge w3-theme-dark" data-toggle="modal" data-target="#logIn" >Log in</button>
+      <!-- Modal -->
+<div class="modal fade" id="logIn" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+      </div>
+      <div class="modal-body" style="padding:40px 50px;">
+        <form role="form" action="../templates/base.html">
+          <div class="form-group">
+            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+          </div>
+            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+        </form>
+      </div>
+      </div>
+
+  </div>
+</div>
+</div>
+
+
+
+    <div class="page-header">
+      <h1 align="center" style="color:white">W walce z rakiem szyjki macicy</h1>
+    </div>
+    <div class="w3-theme-light w3-round"  style="padding:30px; margin: auto; max-width: 700px;">
+    <h4  style="color:#ca163a; ">Ankieta ma na celu określenie ryzyka zachorowania przez Ciebie na nowotwór szyjki macicy. Wszelkie zbierane przez nas informacje mają na celu ustalenie, czy znajdujesz się w grupie podwyższonego ryzyka zachorowalności. Ankieta jest całkowicie anonimowa, a wszelkie informacje przez Ciebie podane nie będą w żaden sposób udostępniane.<br></h4>
+</div>
+    <div class="container">
+      <!-- Trigger the modal with a button -->
+      <div >
+          <div class="w3-round" style="padding:30px; margin: auto; max-width: 700px;">
+      <button type="button" class="w3-btn w3-round-xxlarge w3-theme-dark" data-toggle="modal" data-target="#myModal">Biorę udział w ankiecie</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Weryfikacja targetu</h4>
+            </div>
+            <div class="modal-body">
+              <div class="col-md-12 row">
+              <div class="col-md-6">
+                <form id="sexForm" name="sex" method="post">
+              <h4>  Jaka jest Twoja płeć?</h4>
+              <label class="radio">Kobieta
+                <input type="radio" id="sexForm" name="sex" value="kobieta" id="sexForm" onclick="setAction(this,value)">
+                <span class="checkround"></span>
+              </label>
+              <label class="radio">Mężczyzna
+                <input type="radio" id="sexForm" name="sex" value="mezczyzna" id="sexForm" onclick="setAction(this,value)" data-toggle="modal" data-target="dziex">
+                <span class="checkround"></span>
+              </label>
+<p id="dziex" style="display:none;"> Dziękujemy za udział w ankiecie, niestety jest przeznaczona ona tylko dla kobiet</p>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default" data-dismiss="modal" >Wróć</button>
+              <button type="button" id="dalej" value="formView" class="w3-btn w3-round-xxlarge w3-theme-dark" onclick="setAction(this,value)" style="display:none"> Dalej </button>
+            </div>
+          </form>
+          </div>
+
+
+  </div>
+  </div>
+
+</div>
+</body>
+
+</body>
+</html>
+
+{% endblock %}

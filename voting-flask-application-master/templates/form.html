@@ -1,0 +1,392 @@
+
+{% block body %}
+
+
+
+<html lang="en">
+<head>
+  <title>Ankieta dot. raka szyjki macicy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="..\static\css\style.css" type="text/css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type='text/javascript' src="../static/js/scripts.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1 align="center" style="color:white">W walce z rakiem szyjki macicy</h1>
+    </div>
+    <div class="w3-theme-light w3-round"  style="padding:30px; margin: auto; max-width: 700px;">
+
+<!-- extend base layout -->
+
+
+
+<form role="form" action="/save" method="post">
+  <?-- 1 pytanie -->
+    <div class="form-group">
+        <label for="antykoncepcja" class="title"> Czy w obecnym czasie stosujesz lub w przeciągu ostatnich 8 lat stosowałaś doustną antykoncepcję hormonalną?
+</label>
+        <label class="radio">Tak, przez ponad 10 lat
+          <input type="radio"  name="antykoncepcja" value="10+">
+          <span class="checkround"></span>
+          </label>
+        <label class="radio">Tak, przez ponad 5, ale krócej niż 10 lat
+          <input type="radio"  name="antykoncepcja" value="5+">
+          <span class="checkround"></span>
+          </label>
+        <label class="radio">Tak, krócej niż przez 5 lat
+          <input type="radio"  name="antykoncepcja" value="5-">
+          <span class="checkround"></span>
+          </label>
+        <label class="radio">Nie stosuję doustnej antykoncepcji hormonalnej
+          <input type="radio"  name="antykoncepcja" value="0">
+          <span class="checkround"></span>
+          </label>
+    </div>
+
+    <?-- 2 pytanie -->
+      <div class="form-group">
+          <label for="partnerzy" class="title" >  Liczba dotychczasowych partnerów seksualnych:
+  </label>
+          <label class="radio">10 lub więcej partnerów
+            <input type="radio"  id="partnerzy"  name="partnerzy" value="10+" required onclick="javascript:show(id,value)" >
+            <span class="checkround"></span>
+            </label>
+          <label class="radio"> 5 do 9 partnerów
+            <input type="radio"  id="partnerzy"  name="partnerzy" value="5to9" onclick="javascript:show(id,value)">
+            <span class="checkround"></span>
+            </label>
+          <label class="radio"> 3 do 4 partnerów
+            <input type="radio"  id="partnerzy" name="partnerzy" value="3to4" onclick="javascript:show(id,value)">
+            <span class="checkround"></span>
+            </label>
+          <label class="radio">2 partnerów
+            <input type="radio"  id="partnerzy" name="partnerzy" value="2" onclick="javascript:show(id,value)">
+            <span class="checkround"></span>
+            </label>
+          <label class="radio">1 partner
+            <input type="radio"  id="partnerzy" name="partnerzy" value="1" onclick="javascript:show(id,value)">
+            <span class="checkround"></span>
+            </label>
+          <label class="radio">brak
+            <input type="radio" id="partnerzy" name="partnerzy" value="0" onclick="javascript:show(id,value)">
+            <span class="checkround"></span>
+            </label>
+      </div>
+
+        <?-- 3 pytanie -->
+          <div class="form-group" id="sexWiek" style="visibility:hidden; display:none;">
+              <label for="sexWiek" class="title">  Wiek podczas pierwszego współżycia:
+      </label>
+              <label class="radio">mniej niż 16 lat
+                <input type="radio"  name="sexWiek" value="16-">
+                <span class="checkround"></span>
+                </label>
+              <label class="radio">16 - 17 lat
+                <input type="radio"  name="sexWiek" value="16-17">
+                <span class="checkround"></span>
+                </label>
+              <label class="radio">18 - 19 lat
+                <input type="radio"  name="sexWiek" value="18-19">
+                <span class="checkround"></span>
+                </label>
+              <label class="radio">20 – 21 lat
+                <input type="radio"  name="sexWiek" value="20-21">
+                <span class="checkround"></span>
+                </label>
+              <label class="radio"> 22 lub więcej lat
+                <input type="radio"  name="sexWiek" value="22+">
+                <span class="checkround"></span>
+                </label>
+          </div>
+          <?-- 4 pytanie -->
+            <div class="form-group" id="ciaza" style="visibility:hidden;display:none;">
+                <label for="ciaza" class="title">  Liczba przebytych ciąż:
+        </label>
+                <label class="radio">brak
+                  <input type="radio" id="ciaza"   name="ciaza" value="0"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                  </label>
+                <label class="radio">1
+                  <input type="radio"  id="ciaza"  name="ciaza" value="1"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                  </label>
+                <label class="radio">2
+                  <input type="radio"  id="ciaza"  name="ciaza" value="2"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                  </label>
+                <label class="radio">3
+                  <input type="radio"  id="ciaza"  name="ciaza" value="3"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                  </label>
+                <label class="radio">4
+                  <input type="radio"  id="ciaza"  name="ciaza" value="4"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                  </label>
+                <label class="radio">5 lub więcej
+                  <input type="radio"  id="ciaza"  name="ciaza" value="5+"  onclick="javascript:show(id,value)">
+                  <span class="checkround"></span>
+                </label>
+            </div>
+            <?-- 5 pytanie -->
+              <div class="form-group" id="ciazaWiek" style="visibility:hidden;display:none;">
+                  <label for="ciazaWiek" class="title">  Wiek podczas pierwszego porodu:
+          </label>
+                  <label class="radio">mniej niż 18 lat
+                    <input type="radio"  name="ciazaWiek" value="18-" >
+                    <span class="checkround"></span>
+                    </label>
+                  <label class="radio">18 - 19 lat
+                    <input type="radio"  name="ciazaWiek" value="18-19">
+                    <span class="checkround"></span>
+                    </label>
+                  <label class="radio">20 – 21 lat
+                    <input type="radio"  name="ciazaWiek" value="20-21">
+                    <span class="checkround"></span>
+                    </label>
+                  <label class="radio"> 22 lub więcej lat
+                    <input type="radio"  name="ciazaWiek" value="22+">
+                    <span class="checkround"></span>
+                    </label>
+              </div>
+              <?-- 6 pytanie -->
+                <div class="form-group">
+                    <label for="cytologia" class="title">  Ile lat upłynęło od Twojego ostatniego badania cytologicznego?
+            </label>
+                    <label class="radio">nie miałam cytologii
+                      <input type="radio"  name="cytologia" value="0">
+                      <span class="checkround"></span>
+                      </label>
+                    <label class="radio">1-2 lata
+                      <input type="radio"  name="cytologia" value="1-2">
+                      <span class="checkround"></span>
+                      </label>
+                    <label class="radio">3-4 lata
+                      <input type="radio"  name="cytologia" value="3-4">
+                      <span class="checkround"></span>
+                      </label>
+                    <label class="radio">5-6 lata
+                      <input type="radio"  name="cytologia" value="5-6">
+                      <span class="checkround"></span>
+                      </label>
+                    <label class="radio">7-9 lata
+                      <input type="radio"  name="cytologia" value="7-9">
+                      <span class="checkround"></span>
+                      </label>
+                    <label class="radio">10 lub więcej lat
+                      <input type="radio"  name="cytologia" value="10+">
+                      <span class="checkround"></span>
+                      </label>
+                      <label class="radio">nie pamiętam
+                        <input type="radio"  name="cytologia" value="np">
+                        <span class="checkround"></span>
+                        </label>
+                </div>
+                <?-- 7 pytanie -->
+                  <div class="form-group">
+                      <label for="palenie" class="title"> Przypomnij sobie okres ostatnich 3 miesięcy. W ciągu tego okresu, ile papierosów wypalałaś średnio w ciągu doby?
+              </label>
+                      <label class="radio">nie palę
+                        <input type="radio"  name="palenie" value="0" required>
+                        <span class="checkround"></span>
+                        </label>
+                        <label class="radio">1 – 10 papierosów
+                          <input type="radio"  name="palenie" value="1-10">
+                          <span class="checkround"></span>
+                          </label>
+                      <label class="radio">11 – 20 papierosów
+                        <input type="radio"  name="palenie" value="11-20">
+                        <span class="checkround"></span>
+                        </label>
+                      <label class="radio">20 – 30 papierosów
+                        <input type="radio"  name="palenie" value="20-30">
+                        <span class="checkround"></span>
+                        </label>
+                      <label class="radio">powyżej 30 papierosów
+                        <input type="radio"  name="palenie" value="30+">
+                        <span class="checkround"></span>
+                        </label>
+                  </div>
+                  <?-- 8 pytanie -->
+                    <div class="form-group">
+                        <label for="alkohol" class="title"> Przypomnij sobie okres ostatnich 3 miesięcy. W ciągu tego okresu, jak często spożywałaś alkohol?
+
+                        <label class="radio">kilka razy w tygodniu lub częściej
+                          <input type="radio"  name="alkohol" value="somepwk">
+                          <span class="checkround"></span>
+                          </label>
+                        <label class="radio">raz w tygodniu lub rzadziej
+                          <input type="radio"  name="alkohol" value="oncelow">
+                          <span class="checkround"></span>
+                          </label>
+                    </div>
+                    <?-- 9 pytanie -->
+                      <div class="form-group">
+                          <label for="warzywa" class="title"> Przypomnij sobie okres ostatnich 3 miesięcy. W ciągu tego okresu, jak często spożywałaś warzywa?
+                            <label class="radio">codziennie
+                              <input type="radio"  name="warzywa" value="everyday">
+                              <span class="checkround"></span>
+                              </label>
+                          <label class="radio"> rzadziej niż codziennie
+                            <input type="radio"  name="warzywa" value="less" required>
+                            <span class="checkround"></span>
+                            </label>
+
+
+                      </div>
+                      <?-- 10 pytanie -->
+                        <div class="form-group">
+                            <label for="wf" class="title"> Przypomnij sobie okres ostatnich 3 miesięcy. W ciągu tego okresu, jak często uprawiałaś aktywność fizyczną?
+                            <label class="radio">raz w miesiącu lub rzadziej
+                              <input type="radio"  name="wf" value="1pmth" required>
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio">kilka razy w miesiącu
+                              <input type="radio"  name="wf" value="somepmth">
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio"> kilka razy w tygodniu
+                              <input type="radio"  name="wf" value="somepwk">
+                              <span class="checkround"></span>
+                            </label>
+                        </div>
+                        <?-- 11 pytanie -->
+                        <div class="form-group">
+                          <label for="chorzySM" class="title">Czy w Twojej rodzinie do 2 pokoleń wstecz występowały przypadki zachorowania na nowotwór szyjki macicy?</label>
+                          <select class="form-control" id="chorzySM" name="chorzySM" required>
+                            <option>Tak</option>
+                            <option>Nie</option>
+                            <option>Nie wiem</option>
+                          </select>
+                        </div>
+                        <?-- 12 pytanie -->
+                        <div class="form-group">
+                          <label for="chorzyIN" class="title">Czy w Twojej rodzinie do 2 pokoleń wstecz występowały przypadki zachorowania na inny nowotwór?</label>
+                          <select class="form-control" id="chorzyIN" name="chorzyIN" required>
+                            <option>Tak</option>
+                            <option>Nie</option>
+                            <option>Nie wiem</option>
+                          </select>
+                        </div>
+                        <?-- nowe 1 --?>
+
+
+                        <div class="form-group">
+                          <label for="chorzyHPV" class="title">Czy przebyłaś zakażenie wirusem HPV?</label>
+                          <label class="radio">TAK
+                              <input type="radio" id="chorzyHPV" name="chorzyHPV" value="Tak" required onclick="javascript:show(id,value)">
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio">NIE
+                              <input type="radio" id="chorzyHPV" name="chorzyHPV" value="Nie" onclick="javascript:show(id,value)">
+                              <span class="checkround"></span>
+                              </label>
+
+                        <?-- nowe 2 --?>
+                        <div class="form-group" id="HPV" style="visibility:hidden;display:none;">
+                            <label for="HPV" class="title">  Jakiego typu był ten wirus?
+                    </label>
+                            <label class="radio">typ 6, 11 lub 42
+                              <input type="radio" id="HPV"   name="HPV" value="0">
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio">typ 31, 33, 35, 39, 45, 51 lub 52
+                              <input type="radio"  id="HPV"  name="HPV" value="1"  >
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio">typ 16 lub 18
+                              <input type="radio"  id="HPV"  name="HPV" value="2"  >
+                              <span class="checkround"></span>
+                              </label>
+                            <label class="radio">inny / nie pamiętam
+                              <input type="radio"  id="HPV"  name="HPV" value="3" >
+                              <span class="checkround"></span>
+                              </label>
+                            </div>
+                        <?-- 13 pytanie -->
+                        <div class="form-group">
+                            <label for="Waga" class="title">Twoja waga ciała [kg]:</label>
+                            <input type="number" class="form-control" id="waga" name="waga" min="1" max="600" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Wzrost" class="title">Twój wzrost [cm]:</label>
+                            <input type="number" class="form-control" id="wzrost" name="wzrost" min="1" max="300" required>
+                        </div>
+                        <?-- 14 pytanie -->
+                        <div class="form-group">
+                          <label for="wiek" class="title">Wiek:</label>
+                          <select class="form-control" id="wiek" name="wiek" required>
+                            <option>poniżej 25 lat</option>
+                            <option>25 - 40 lat</option>
+                            <option>40 – 50 lat</option>
+                            <option>40 – 50 lat</option>
+                            <option>powyżej 50 lat</option>
+                          </select>
+                        </div>
+                        <?-- 15 pytanie -->
+                          <div class="form-group">
+                              <label for="miasto" class="title">Miejsce zamieszkania
+                      </label>
+                              <label class="radio">wieś
+                                <input type="radio"  name="miasto" value="wies" required>
+                                <span class="checkround"></span>
+                                </label>
+                              <label class="radio">miasto do 20 tys.
+                                <input type="radio"  name="miasto" value="20">
+                                <span class="checkround"></span>
+                                </label>
+                              <label class="radio">miasto do 50 tys.
+                                <input type="radio"  name="miasto" value="50">
+                                <span class="checkround"></span>
+                                </label>
+                              <label class="radio">miasto do 100 tys.
+                                <input type="radio"  name="miasto" value="100">
+                                <span class="checkround"></span>
+                                </label>
+                              <label class="radio">miasto do 500 tys.
+                                <input type="radio"  name="miasto" value="500">
+                                <span class="checkround"></span>
+                                </label>
+                              <label class="radio">miasto powyżej 500 tys.
+                                <input type="radio"  name="miasto" value="500+">
+                                <span class="checkround"></span>
+                                </label>
+                          </div>
+                          <?-- 16 pytanie -->
+                          <div class="form-group">
+                            <label for="praca" class="title">Status zawodowy</label>
+                            <select class="form-control" id="praca" name="praca" required>
+                              <option>student/uczeń</option>
+                              <option>osoba pracująca</option>
+                              <option>osoba bezrobotna</option>
+                            </select>
+                          </div>
+                          <?-- 17 pytanie -->
+                          <div class="form-group">
+                            <label for="wyksztalcenie" class="title">Posiadane wykształcenie</label>
+                            <select class="form-control" id="wyksztalcenie" name="wyksztalcenie" required>
+                              <option>podstawowe</option>
+                              <option>średnie</option>
+                              <option>niepełne wyższe</option>
+                              <option>wyższe</option>
+                            </select>
+                          </div>
+
+
+    <button type="submit" class="btn btn-default">Save</button>
+</form>
+
+
+
+
+{% endblock %}
+
+
+
+  </div>
+  </div>
